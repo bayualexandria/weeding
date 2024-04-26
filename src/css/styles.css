@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-shadow {
+    text-shadow: 0 3px 3px rgb(0 0 0 / 0.5);
+}
+
+.hero {
+    background-image: url("/assets/images/bg-halaman-utama.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    filter: brightness();
+}
+
+.halaman-utama {
+    background-image: url("/assets/images/bg-halaman-utama.jpg");
+
+    /* Set a specific height */
+    min-height: 610px;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* laptop */
+@media (min-width: 769px) {
+    .hero {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .simply-countdown>.simply-section {
+        padding: 50px;
+    }
+
+
+}
+
+/* tablet */
+@media (max-width: 768px) {
+
+    .hero {
+        background-position: right;
+    }
+
+    .halaman-utama {
+
+        background-position: right;
+    }
+
+    .simply-countdown>.simply-section {
+        padding: 40px;
+
+    }
+
+
+}
+
+/* mobile phone */
+@media (max-width: 576px) {
+
+    .hero {
+
+        background-position: right;
+    }
+
+    .halaman-utama {
+
+        background-position: right;
+    }
+
+    .simply-countdown>.simply-section {
+        padding: 35px;
+
+    }
+
+}
