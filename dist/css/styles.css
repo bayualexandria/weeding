@@ -958,7 +958,7 @@ video {
 }
 
 .hero {
-  background-image: url("/assets/images/bg-halaman-utama.jpg");
+  background-image: url("../../assets/images/bg-halaman-utama.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -972,7 +972,7 @@ video {
 }
 
 .halaman-utama {
-  background-image: url("/assets/images/bg-halaman-utama.jpg");
+  background-image: url("../../assets/images/bg-halaman-utama.jpg");
   /* Set a specific height */
   min-height: 610px;
   /* Create the parallax scrolling effect */
