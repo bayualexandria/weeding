@@ -606,12 +606,12 @@ video {
   height: 2rem;
 }
 
-.h-\[610px\] {
-  height: 610px;
-}
-
 .h-full {
   height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .w-3\/4 {
@@ -776,10 +776,6 @@ video {
 .border-primary {
   --tw-border-opacity: 1;
   border-color: rgb(217 185 200 / var(--tw-border-opacity));
-}
-
-.bg-black\/50 {
-  background-color: rgb(0 0 0 / 0.5);
 }
 
 .bg-pink-300 {
@@ -972,9 +968,10 @@ video {
 }
 
 .halaman-utama {
-  background-image: url("../../assets/images/bg-halaman-utama.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),url("../../assets/images/bg-halaman-utama.jpg");
   /* Set a specific height */
   min-height: 610px;
+  background-color: rgba(0, 0, 0, 0.5);
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-position: center;
