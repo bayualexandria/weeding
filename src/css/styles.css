@@ -24,7 +24,7 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.5)),url("../../assets/images/bg-halaman-utama.jpg");
 
     /* Set a specific height */
-    min-height: 610px;
+    min-height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -36,8 +36,8 @@
 /* laptop */
 @media (min-width: 769px) {
     .hero {
-        justify-content: center;
-        align-items: center;
+        justify-content: right;
+        align-items: right;
     }
 
     .simply-countdown>.simply-section {
