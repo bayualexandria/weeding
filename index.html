@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -84,10 +84,10 @@
     <div id="content" class="hidden">
       <!-- Start Home Page -->
       <div class="halaman-utama" id="home">
-        <div
-          class="absolute w-full text-center justify-center items-center"
-        >
-          <div class="flex flex-col justify-center items-center py-5 gap-y-5 pt-12">
+        <div class="absolute w-full text-center justify-center items-center">
+          <div
+            class="flex flex-col justify-center items-center py-5 gap-y-5 pt-12"
+          >
             <div class="flex">
               <h1
                 class="text-shadow text-5xl pt-2 font-bold font-sacramento text-white"
@@ -157,7 +157,7 @@
       <!-- End Home Page -->
 
       <!-- Start Date Page -->
-      <div class="bg-pink-300 p-5" id="date">
+      <div class="bg-pink-300 p-5" id="cincin">
         <div class="flex flex-col gap-y-5 w-full items-center">
           <div class="flex flex-col w-full items-center gap-y-3">
             <div class="flex flex-col text-center items-center">
@@ -185,10 +185,12 @@
             <div
               class="rounded-tl-3xl shadow-md bg-white p-5 w-full rounded-br-3xl flex flex-col items-center"
             >
-              <div class="flex flex-col items-center gap-y-2">
+              <div class="flex flex-col items-center gap-y-2 text-center">
                 <div
-                  class="w-52 rounded-full h-52 flex justify-center items-center border-2 border-primary"
-                ></div>
+                  class="w-52 rounded-full h-52 flex justify-center overflow-hidden items-center border-2 border-primary"
+                >
+                <img src="assets/images/bayu.jpg" alt="bayu" class="">
+            </div>
                 <h1 class="font-sacramento font-bold text-3xl">
                   Bayu Wardana, S.Kom
                 </h1>
@@ -198,10 +200,12 @@
                 </h1>
               </div>
               <h1 class="font-sacramento font-bold text-4xl">&</h1>
-              <div class="flex flex-col items-center gap-y-2">
+              <div class="flex flex-col items-center gap-y-2 text-center">
                 <div
-                  class="w-52 rounded-full h-52 flex justify-center items-center border-2 border-primary"
-                ></div>
+                  class="w-52 rounded-full overflow-hidden h-52 flex justify-center items-center border-2 border-primary"
+                >
+                <img src="assets/images/irma.jpeg" alt="irma" class="bg-repeat-x">
+            </div>
                 <h1 class="font-sacramento font-bold text-3xl">
                   Irma Kusuma Wardani, S.A.P
                 </h1>
@@ -222,7 +226,6 @@
           <audio id="song" autoplay loop>
             <source src="assets/audio/janji.mp3" type="audio/mp3" />
           </audio>
-          
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -252,10 +255,17 @@
         <div
           class="flex py-3 flex-row justify-between px-16 items-center bg-primary shadow-md rounded-tl-xl rounded-tr-xl"
         >
-          <a href="/#home" class="cursor-pointer">
+          <a href="#home" class="cursor-pointer outline-none">
             <img src="assets/icon/weeding.png" alt="weeding" class="w-8" />
           </a>
-          <a href="/#date" class="cursor-pointer hover:bg-pink-500">
+          <a href="#cincin" class="outline-none cursor-pointer">
+            <img
+              src="assets/icon/coupleofrings_79619.svg"
+              alt="cincin"
+              class="w-8"
+            />
+          </a>
+          <a href="/#date" class="cursor-pointer outline-none">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -271,13 +281,7 @@
               />
             </svg>
           </a>
-          <div>
-            <img
-              src="assets/icon/coupleofrings_79619.svg"
-              alt="cincin"
-              class="w-8"
-            />
-          </div>
+
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
