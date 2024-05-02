@@ -726,7 +726,7 @@
                       Salin No. Rekening
                     </button>
                     <div
-                      id="tooltip-copy"
+                      id="tooltip-copy-bri"
                       class="p-1 text-sm tracking-normal text-slate-white absolute bg-slate-500 -top-8 rounded-md -right-14 hidden"
                     >
                       Copied!
@@ -738,19 +738,35 @@
                 <div class="flex flex-col items-center p-5 gap-y-2">
                   <img src="assets/images/mandiri.png" alt="" class="w-32" />
                   <div class="flex flex-col items-center">
-                    <p class="text-slate-500 text-sm font-bold">
-                      No. Rekening :
-                    </p>
+                    <div class="flex flex-row justify-center items-center">
+                      <p class="text-slate-500 text-sm font-bold">
+                        No. Rekening : &nbsp;
+                      </p>
+                      <p
+                        class="text-slate-500 text-base font-bold"
+                        id="mandiri"
+                      ></p>
+                    </div>
                     <p class="text-slate-500 text-sm font-bold">
                       Irma Kusuma Wardani
                     </p>
                   </div>
-                  <button
-                    type="button"
-                    class="bg-pink-300 text-sm font-bold rounded-md shadow-md px-2 py-1 hover:bg-white hover:text-pink-300 transition duration-200 hover:ring hover:ring-pink-200"
-                  >
-                    Salin No. Rekening
-                  </button>
+                  <div class="flex relative">
+                    <button
+                      onclick="rekMandiri()"
+                      type="button"
+                      id="btn-mandiri"
+                      class="bg-pink-300 text-sm font-bold rounded-md shadow-md px-2 py-1 hover:bg-white hover:text-pink-300 transition duration-200 hover:ring hover:ring-pink-200"
+                    >
+                      Salin No. Rekening
+                    </button>
+                    <div
+                      id="tooltip-copy-mandiri"
+                      class="p-1 text-sm tracking-normal text-slate-white absolute bg-slate-500 -top-8 rounded-md -right-14 hidden"
+                    >
+                      Copied!
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -760,7 +776,7 @@
       <!-- End Sumbangan Page -->
 
       <!-- Start Salam  -->
-      <div class="w-full ">
+      <div class="w-full">
         <div
           class="flex flex-col bg-white h-52 items-center text-center gap-y-5 p-5"
         >
@@ -775,7 +791,9 @@
         </div>
         <div class="flex flex-col items-center pb-14 gap-y-3 px-3">
           <div class="w-full border border-slate-500 rounded-full"></div>
-          <p class="font-normal text-slate-500 text-sm flex flex-row gap-x-2 items-center justify-center">
+          <p
+            class="font-normal text-slate-500 text-sm flex flex-row gap-x-2 items-center justify-center"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -954,9 +972,12 @@
       const audioContainer = document.querySelector("#audio-container");
       const iconSong = document.querySelector("#icon-song");
       let isPlaying = false;
-      const rekBRI = document.getElementById("bri").innerHTML;
       const btnRekBRI = document.getElementById("btn-bri");
-      const tooltipCopy = document.getElementById("tooltip-copy");
+      const btnRekMandiri = document.getElementById("btn-mandiri");
+      const tooltipCopyBRI = document.getElementById("tooltip-copy-bri");
+      const tooltipCopyMandiri = document.getElementById(
+        "tooltip-copy-mandiri"
+      );
 
       if (localStorage.getItem("buka") == "buka") {
         playAudio();
@@ -964,9 +985,10 @@
         undanganBuka.classList.remove("hidden");
       }
 
+      // Rek BRI
       const btnBRI = async () => {
         try {
-          await navigator.clipboard.writeText(rekBRI);
+          await navigator.clipboard.writeText(489701025465539);
           btnRekBRI.innerHTML = "";
           btnRekBRI.innerHTML = `<svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -983,11 +1005,11 @@
                   />
                 </svg>`;
           setTimeout(() => {
-            tooltipCopy.classList.remove("hidden");
+            tooltipCopyBRI.classList.remove("hidden");
             btnRekBRI.innerHTML = "";
             btnRekBRI.innerHTML = "Salin No. Rekening";
             setTimeout(() => {
-              tooltipCopy.classList.add("hidden");
+              tooltipCopyBRI.classList.add("hidden");
             }, 1000);
           }, 500);
           console.log("Content copied to clipboard");
@@ -996,6 +1018,38 @@
         }
       };
 
+      // Rek Mandiri
+      const rekMandiri = async () => {
+        try {
+          await navigator.clipboard.writeText(" ");
+          btnRekMandiri.innerHTML = "";
+          btnRekMandiri.innerHTML = `<svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="{1.5}"
+                  stroke="currentColor"
+                  class="w-5 h-5 animate-spin"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+                  />
+                </svg>`;
+          setTimeout(() => {
+            tooltipCopyMandiri.classList.remove("hidden");
+            btnRekMandiri.innerHTML = "";
+            btnRekMandiri.innerHTML = "Salin No. Rekening";
+            setTimeout(() => {
+              tooltipCopyMandiri.classList.add("hidden");
+            }, 1000);
+          }, 500);
+          console.log("Content copied to clipboard");
+        } catch (err) {
+          console.error("Failed to copy: ", err);
+        }
+      };
       const bukaUndangan = () => {
         clickBukaUndangan.addEventListener("click", function () {
           clickBukaUndangan.innerHTML = "";
