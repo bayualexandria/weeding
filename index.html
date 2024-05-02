@@ -706,17 +706,32 @@
                 <div class="flex flex-col items-center p-5 gap-y-2">
                   <img src="assets/images/bri.png" alt="" class="w-32" />
                   <div class="flex flex-col items-center">
-                    <p class="text-slate-500 text-sm font-bold">
-                      No. Rekening :
-                    </p>
+                    <div class="flex flex-row justify-center items-center">
+                      <p class="text-slate-500 text-sm font-bold">
+                        No. Rekening : &nbsp;
+                      </p>
+                      <p class="text-slate-500 text-base font-bold" id="bri">
+                        489701025465539
+                      </p>
+                    </div>
                     <p class="text-slate-500 text-sm font-bold">Bayu Wardana</p>
                   </div>
-                  <button
-                    type="button"
-                    class="bg-pink-300 text-sm font-bold rounded-md shadow-md px-2 py-1 hover:bg-white hover:text-pink-300 transition duration-200 hover:ring hover:ring-pink-200"
-                  >
-                    Salin No. Rekening
-                  </button>
+                  <div class="flex relative">
+                    <button
+                      type="button"
+                      onclick="btnBRI()"
+                      id="btn-bri"
+                      class="bg-pink-300 text-sm font-bold rounded-md shadow-md px-2 py-1 hover:bg-white hover:text-pink-300 transition duration-200 hover:ring hover:ring-pink-200 group"
+                    >
+                      Salin No. Rekening
+                    </button>
+                    <div
+                      id="tooltip-copy"
+                      class="p-1 text-sm tracking-normal text-slate-white absolute bg-slate-500 -top-8 rounded-md -right-14 hidden"
+                    >
+                      Copied!
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="md:w-1/2 w-full rounded-md shadow-md bg-slate-50 p-2">
@@ -744,7 +759,43 @@
       </div>
       <!-- End Sumbangan Page -->
 
-      <div class="w-full bg-white h-52"></div>
+      <!-- Start Salam  -->
+      <div class="w-full ">
+        <div
+          class="flex flex-col bg-white h-52 items-center text-center gap-y-5 p-5"
+        >
+          <p class="text-sm text-slate-500 font-medium">
+            Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila, Bapak
+            / Ibu / Saudara / i. berkenan hadir untuk memberikan do'a restunya
+            kami ucapkan terimakasih.
+          </p>
+          <h1 class="font-sacramento text-2xl text-slate-500 font-bold">
+            Wassalamualaikum Warahmatullahi Wabarakatuh
+          </h1>
+        </div>
+        <div class="flex flex-col items-center pb-14 gap-y-3 px-3">
+          <div class="w-full border border-slate-500 rounded-full"></div>
+          <p class="font-normal text-slate-500 text-sm flex flex-row gap-x-2 items-center justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-5 h-5 text-primary"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+              />
+            </svg>
+
+            cre@ted by b@yu4lex@ndr!4
+          </p>
+        </div>
+      </div>
+      <!-- End Salam -->
 
       <!-- Start Music Button -->
       <div class="fixed right-2 bottom-16" id="audio-container">
@@ -825,7 +876,7 @@
               />
             </svg>
           </a>
-          <div>
+          <a href="#sumbangan" class="cursor-pointer outline-none">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -840,7 +891,7 @@
                 d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"
               />
             </svg>
-          </div>
+          </a>
         </div>
       </div>
       <!-- End Menu Button -->
@@ -855,6 +906,7 @@
       window.addEventListener("load", function () {
         const form = document.getElementById("my-form");
         const valueNull = document.forms["my-form"];
+        setTimeout(() => {}, 1000);
         form.addEventListener("submit", function (e) {
           e.preventDefault();
           if (
@@ -902,12 +954,47 @@
       const audioContainer = document.querySelector("#audio-container");
       const iconSong = document.querySelector("#icon-song");
       let isPlaying = false;
+      const rekBRI = document.getElementById("bri").innerHTML;
+      const btnRekBRI = document.getElementById("btn-bri");
+      const tooltipCopy = document.getElementById("tooltip-copy");
 
       if (localStorage.getItem("buka") == "buka") {
         playAudio();
         undanganTutup.innerHTML = "";
         undanganBuka.classList.remove("hidden");
       }
+
+      const btnBRI = async () => {
+        try {
+          await navigator.clipboard.writeText(rekBRI);
+          btnRekBRI.innerHTML = "";
+          btnRekBRI.innerHTML = `<svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="{1.5}"
+                  stroke="currentColor"
+                  class="w-5 h-5 animate-spin"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+                  />
+                </svg>`;
+          setTimeout(() => {
+            tooltipCopy.classList.remove("hidden");
+            btnRekBRI.innerHTML = "";
+            btnRekBRI.innerHTML = "Salin No. Rekening";
+            setTimeout(() => {
+              tooltipCopy.classList.add("hidden");
+            }, 1000);
+          }, 500);
+          console.log("Content copied to clipboard");
+        } catch (err) {
+          console.error("Failed to copy: ", err);
+        }
+      };
 
       const bukaUndangan = () => {
         clickBukaUndangan.addEventListener("click", function () {
