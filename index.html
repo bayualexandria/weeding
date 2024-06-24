@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="dist/css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <div id="undanganTutup">
@@ -589,28 +590,29 @@
           >
             <div class="flex flex-col">
               <label
-                for="nama"
+                for="Nama"
                 class="text-left text-slate-500 font-bold text-sm"
                 >Nama Lengkap</label
               >
               <input
+              readonly
                 type="text"
-                name="nama"
-                id="nama"
-                class="border border-primary p-2 rounded-md shadow-md outline-none text-slate-500 text-sm font-normal"
+                name="Nama"
+                id="Nama"
+                class="border border-primary bg-slate-100 p-2 rounded-md shadow-md outline-none text-slate-500 text-sm font-normal"
               />
             </div>
             <div class="flex flex-row gap-x-5 w-full">
               <div class="flex flex-col">
                 <label
-                  for="jumlah"
+                  for="Jumlah"
                   class="text-left text-slate-500 font-bold text-sm"
                   >Jumlah</label
                 >
                 <input
                   type="number"
-                  id="jumlah"
-                  name="jumlah"
+                  id="Jumlah"
+                  name="Jumlah"
                   min="1"
                   max="5"
                   length="1"
@@ -620,14 +622,14 @@
               </div>
               <div class="flex flex-col w-full">
                 <label
-                  for="status"
+                  for="Ket"
                   class="text-left text-slate-500 font-bold text-sm"
                   >Konfirmasi</label
                 >
                 <select
                   class="outline-none rounded-md border border-primary shadow-md p-2 text-slate-500 text-sm font-normal w-full"
-                  id="status"
-                  name="status"
+                  id="Ket"
+                  name="Ket"
                 >
                   <option selected value="">--Pilih salah satu---</option>
                   <option value="Hadir">Hadir</option>
@@ -932,51 +934,18 @@
     ></script>
     <script>
       window.addEventListener("load", function () {
-        const form = document.getElementById("my-form");
         const valueNull = document.forms["my-form"];
         const textParam = window.location.search;
-const deletePeren = textParam.replace("?", "");
-const queryString = deletePeren.replaceAll("%20", " ");
-const namaTU = (document.getElementById("tamu-undangan").innerHTML =
-  queryString);
-localStorage.setItem("tamu_undangan", queryString);
+        const deletePeren = textParam.replace("?", "");
+        const queryString = deletePeren.replaceAll("%20", " ");
+        const namaTU = (document.getElementById("tamu-undangan").innerHTML =
+        queryString);
+        localStorage.setItem("tamu_undangan", queryString);
+        
         setTimeout(() => {}, 1000);
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-          if (
-            valueNull["nama"].value == "" ||
-            valueNull["nama"].value == null
-          ) {
-            console.log("Nama harus diisi");
-            return false;
-          }
-          if (
-            valueNull["jumlah"].value == "" ||
-            valueNull["jumlah"].value == null
-          ) {
-            console.log("Jumlah harus diisi");
-            return false;
-          }
+       
 
-          if (
-            valueNull["status"].value == "" ||
-            valueNull["status"].value == null
-          ) {
-            console.log("Status harus diisi");
-            return false;
-          }
-
-          console.log("Sudah diisi");
-          const data = new FormData(form);
-          const action = e.target.action;
-          console.log(data);
-          fetch(action, {
-            method: "POST",
-            body: data,
-          }).then(() => {
-            alert("Konfirmasi kehadiran berhasil terkirim!");
-          });
-        });
+        
       });
     </script>
     <script>

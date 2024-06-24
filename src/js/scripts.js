@@ -10,6 +10,28 @@ const btnRekBRI = document.getElementById("btn-bri");
 const btnRekMandiri = document.getElementById("btn-mandiri");
 const tooltipCopyBRI = document.getElementById("tooltip-copy-bri");
 const tooltipCopyMandiri = document.getElementById("tooltip-copy-mandiri");
+const form = document.getElementById("my-form");
+document.getElementById("Nama").value = localStorage.getItem("tamu_undangan");
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const scriptURL =
+    "https://script.google.com/macros/s/AKfycbyoZ02Bee4rBLhiescNLj1GAY5iVJHZ_-LeY6ggYsNnWjnEraXcNwcOp5XWY1g7rojq/exec";
+
+  const responseBody = new FormData(form);
+  const TrendBody = responseBody.getAll("TRENDS").join(" ");
+  responseBody.set("TRENDS", TrendBody);
+  fetch(scriptURL, { method: "POST", body: responseBody })
+    .then((response) => {
+      Swal.fire({
+        title: "Sukses",
+        text: "Anda berhasil mengirimkan konfirmasi kehadiran!",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    })
+    .catch((error) => alert("Error!", error.message));
+});
 
 if (localStorage.getItem("buka") == "buka") {
   playAudio();
