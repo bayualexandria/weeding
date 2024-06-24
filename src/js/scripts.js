@@ -53,7 +53,7 @@ const btnBRI = async () => {
 // Rek Mandiri
 const rekMandiri = async () => {
   try {
-    await navigator.clipboard.writeText(" ");
+    await navigator.clipboard.writeText(1540016077574);
     btnRekMandiri.innerHTML = "";
     btnRekMandiri.innerHTML = `<svg
                   xmlns="http://www.w3.org/2000/svg"
